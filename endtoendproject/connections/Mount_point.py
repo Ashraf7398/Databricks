@@ -61,7 +61,23 @@ dbutils.fs.ls('/mnt/raw_datalake_cleansed/')
 
 # COMMAND ----------
 
+configs = {"fs.azure.account.auth.type": "OAuth",
+           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+           "fs.azure.account.oauth2.client.id": dbutils.secrets.get(scope="endtoendproject-scope", key="dataappid"),
+           "fs.azure.account.oauth2.client.secret": dbutils.secrets.get(scope="endtoendproject-scope", key="datasecretid"),
+           "fs.azure.account.oauth2.client.endpoint": dbutils.secrets.get(scope="endtoendproject-scope", key="dataclientrefresh-url")}
 
+mountPoint = "/mnt/raw_datalake_mart/"
+if not any(mount.mountPoint == mountPoint for mount in dbutils.fs.mounts()):
+    dbutils.fs.mount(
+        source=dbutils.secrets.get(scope="endtoendproject-scope", key="datalake-mart"),
+        mount_point=mountPoint,
+        extra_configs=configs
+    )
+
+# COMMAND ----------
+
+dbutils.fs.ls('/mnt/raw_datalake_mart/')
 
 # COMMAND ----------
 

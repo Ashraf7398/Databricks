@@ -42,6 +42,12 @@ df.createOrReplaceTempView('unique_carriers')
 # COMMAND ----------
 
 # MAGIC %sql
+# MAGIC CREATE TABLE endtoendproject.unique_carriers AS
+# MAGIC SELECT * FROM unique_carriers;
+
+# COMMAND ----------
+
+# MAGIC %sql
 # MAGIC select * from unique_carriers limit 10
 
 # COMMAND ----------

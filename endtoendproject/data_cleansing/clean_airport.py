@@ -48,6 +48,13 @@ df.createOrReplaceTempView('airport')
 # COMMAND ----------
 
 # MAGIC %sql
+# MAGIC -- CREATE TABLE endtoendproject.airport AS
+# MAGIC -- SELECT * FROM airport;
+# MAGIC desc history endtoendproject.airport
+
+# COMMAND ----------
+
+# MAGIC %sql
 # MAGIC select * from airport
 
 # COMMAND ----------

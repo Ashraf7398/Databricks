@@ -43,6 +43,12 @@ df.createOrReplaceTempView('cancellation')
 # COMMAND ----------
 
 # MAGIC %sql
+# MAGIC CREATE TABLE endtoendproject.cancellation AS
+# MAGIC SELECT * FROM cancellation;
+
+# COMMAND ----------
+
+# MAGIC %sql
 # MAGIC select * from cancellation limit 10
 
 # COMMAND ----------

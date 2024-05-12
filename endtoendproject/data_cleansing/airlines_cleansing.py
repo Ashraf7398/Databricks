@@ -36,7 +36,14 @@ df.createOrReplaceTempView('airlines')
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC select * from airlines limit 10
+# MAGIC CREATE TABLE endtoendproject.airlines AS
+# MAGIC SELECT * FROM airlines;
+# MAGIC
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from endtoendproject.airlines limit 10
 
 # COMMAND ----------
 

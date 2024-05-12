@@ -66,13 +66,15 @@ df.createOrReplaceTempView('plane')
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC create database if not exists endtoendproject
+# MAGIC -- create database if not exists endtoendproject
+# MAGIC CREATE TABLE endtoendproject.plane AS
+# MAGIC SELECT * FROM plane;
 # MAGIC
 
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC select count(*) from plane
+# MAGIC select * from endtoendproject.plane limit 10
 
 # COMMAND ----------
 
